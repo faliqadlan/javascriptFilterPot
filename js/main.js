@@ -57,3 +57,7 @@
     
 
 })(jQuery);
+
+let   initE   = parseFloat(document.getElementById('initE').value)
+
+console.log(initE)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Contact V17</title>
+	<title>Potential by Filter Method</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -34,40 +34,34 @@
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form">
 				<span class="contact100-form-title">
-					write your input parameter
+					input your parameter
 				</span>
 
-				<label class="label-input100" for="nloop">Input nloop value</label>
-				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-					<input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-					<span class="focus-input100"></span>
-				</div>
-
-				<label class="label-input100" for="first-name">Tell us your name *</label>
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
-					<input id="first-name" class="input100" type="text" name="first-name" placeholder="First name">
-					<span class="focus-input100"></span>
-				</div>
-				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type last name">
-					<input class="input100" type="text" name="last-name" placeholder="Last name">
-					<span class="focus-input100"></span>
-				</div>
-
-				<label class="label-input100" for="email">Enter your email *</label>
-				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-					<input id="email" class="input100" type="text" name="email" placeholder="Eg. example@email.com">
-					<span class="focus-input100"></span>
-				</div>
-
-				<label class="label-input100" for="phone">Enter phone number</label>
+				<label class="label-input100" for="nloop">nloop</label>
 				<div class="wrap-input100">
-					<input id="phone" class="input100" type="text" name="phone" placeholder="Eg. +1 800 000000">
+					<input id="nloop" class="input100" type="number" name="nloop" placeholder="3" value="3">
 					<span class="focus-input100"></span>
 				</div>
 
-				<label class="label-input100" for="message">Message *</label>
-				<div class="wrap-input100 validate-input" data-validate = "Message is required">
-					<textarea id="message" class="input100" name="message" placeholder="Write us a message"></textarea>
+				<label class="label-input100" for="xmin">Potensial range</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type xmin">
+					<input id="xmin" class="input100" type="number" name="xmin" placeholder="xmin" value="-1">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type xmax">
+					<input id="xmax" class="input100" type="number" name="xmax" placeholder="xmax" value="1">
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="dx">dx</label>
+				<div class="wrap-input100 validate-input" data-validate = "type dx">
+					<input id="dx" class="input100" type="number" name="dx" placeholder="0.01" value="0.01">
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="initE">initial energy</label>
+				<div class="wrap-input100">
+					<input id="initE" class="input100" type="number" name="initE" placeholder="0" value="0">
 					<span class="focus-input100"></span>
 				</div>
 
