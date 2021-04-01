@@ -259,6 +259,7 @@ iframe {
 [ Contact more ]*/
 .contact100-more {
   width: 75%;
+  height: auto;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
