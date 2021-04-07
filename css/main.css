@@ -314,6 +314,7 @@ iframe {
 
 .wrap-input100 {
   width: 100%;
+  height: fit-content;
   position: relative;
   border: 1px solid #e6e6e6;
 }
@@ -334,7 +335,6 @@ iframe {
   line-height: 1.5;
   text-transform: uppercase;
   letter-spacing: 1px;
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -342,7 +342,10 @@ iframe {
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 55px;
+  /* height: fit-content; */
+  position: relative;
+  /* min-height: 55px; */
+  min-height: fit-content;
   border: 1px solid #e6e6e6;
   border-bottom: none;
   padding: 10px 25px;
