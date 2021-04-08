@@ -37,9 +37,41 @@
         //         return false;
         //     }
         // }
-        if($(input).val().trim().match(/^\d(\.\d)*$/) == null) {
+        // if($(input).val().trim().match(/^[-+]?\d+(\.\d+)?$/) == null) {
+        //         return false;
+        //     }
+        if($(input).attr('id') == 'xmin' || $(input).attr('id') == 'xmax'){
+            if(parseFloat($("#xmin").val()) >= parseFloat($("#xmax").val()) || parseFloat($("#xmax").val()) <= parseFloat($("#xmin").val())){
+                return false
+            }
+        }
+
+        if($(input).attr('id') == 'nloop'){
+            if($(input).val().trim().match(/^\d+$/) == null) {
                 return false;
             }
+        }
+        if($(input).attr('id') == 'dx'){
+            if($(input).val().trim().match(/^[+]?((\d*[1-9]+\d*\.?\d*)|(\d*\.\d*[1-9]+\d*))$/) == null) {
+                return false;
+            }
+        }
+        if($(input).attr('id') == 'initE' || $(input).attr('id') == 'v0'){
+            if($(input).val().trim().match(/^(\d*\.)?\d+$/) == null){
+                return false
+            }
+        }
+
+        if($(input).attr('id') == 'v0'){
+            if($(input).val().trim().match(/^(\d*\.)?\d+$/) == null){
+                return false
+            }
+        }
+        
+        
+        // if (parseFloat($("#xmax").val()) <= parseFloat($("#xmin").val())) {
+        //         return false
+        //     }
         
     }
 

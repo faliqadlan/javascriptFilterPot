@@ -38,30 +38,36 @@
 				</span>
 
 				<label class="label-input100" for="nloop">nloop</label>
-				<div class="wrap-input100 validate-input" data-validate="Type nloop">
+				<div class="wrap-input100 validate-input" data-validate="nloop must a integer number">
 					<input id="nloop" class="input100" type="text" name="nloop" placeholder="3" value="3">
 					<span class="focus-input100"></span>
 				</div>
 
 				<label class="label-input100" for="xmin">Potensial range</label>
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type xmin">
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="xmin must a number and below xmax">
 					<input id="xmin" class="input100" type="text" name="xmin" placeholder="xmin" value="-1">
 					<span class="focus-input100"></span>
 				</div>
-				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Type xmax">
+				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="xmax must a number and above xmin">
 					<input id="xmax" class="input100" type="text" name="xmax" placeholder="xmax" value="1">
 					<span class="focus-input100"></span>
 				</div>
 
 				<label class="label-input100" for="dx">dx</label>
-				<div class="wrap-input100 validate-input" data-validate = "type dx">
+				<div class="wrap-input100 validate-input" data-validate = "dx must a positive number and not a zero">
 					<input id="dx" class="input100" type="text" name="dx" placeholder="0.01" value="0.01">
 					<span class="focus-input100"></span>
 				</div>
 
 				<label class="label-input100" for="initE">initial energy</label>
-				<div class="wrap-input100 validate-input" data-validate="Type initial energy">
+				<div class="wrap-input100 validate-input" data-validate="initial energy must a positive number">
 					<input id="initE" class="input100" type="text" name="initE" placeholder="0" value="0">
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="v0">initial potential</label>
+				<div class="wrap-input100 validate-input" data-validate="initial potential must a positive number">
+					<input id="v0" class="input100" type="text" name="v0" placeholder="0" value="0">
 					<span class="focus-input100"></span>
 				</div>
 
