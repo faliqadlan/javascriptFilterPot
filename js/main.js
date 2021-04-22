@@ -47,7 +47,7 @@
         }
 
         if($(input).attr('id') == 'nloop'){
-            if($(input).val().trim().match(/^\d+$/) == null) {
+            if($(input).val().trim().match(/^[1-9]\d*$/) == null) {
                 return false;
             }
         }
@@ -89,3 +89,9 @@
     
 
 })(jQuery);
+
+$(function() {
+    $("#item").click(function() {
+        $("#submenu").slideToggle(500);
+    });
+}); 
