@@ -26,13 +26,14 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
 
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<div class="contact100-form validate-form">
 				<span class="contact100-form-title">
 					initial parameter
 				</span>
@@ -61,7 +62,13 @@
 
 				<label class="label-input100" for="initE">initial energy</label>
 				<div class="wrap-input100 validate-input" data-validate="initial energy must a positive number">
-					<input id="initE" class="input100" type="text" name="initE" placeholder="0" value="0">
+					<input id="initE" class="input100" type="text" name="initE" placeholder="0" value="1">
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="initE">minimum energy</label>
+				<div class="wrap-input100 validate-input" data-validate="minimum energy must a positive number">
+					<input id="minE" class="input100" type="text" name="minE" placeholder="0" value="0">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -70,9 +77,9 @@
 					<input id="v0" class="input100" type="text" name="v0" placeholder="0" value="0">
 					<span class="focus-input100"></span>
 				</div>
-			</form>
+			</div>
 
-			<form class="contact100-form validate-form">
+			<div class="contact100-form validate-form">
 				<span class="contact100-form-title">
 					potential parameter
 				</span>
@@ -94,11 +101,11 @@
 
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+					<button type="submit" name="submit" id="submit" onclick= submit() class="contact100-form-btn">
 						Run Program
 					</button>
 				</div>
-			</form>
+			</div>
 
 			<div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
 				<div class="flex-w size1 p-b-47">
@@ -108,50 +115,63 @@
 
 					<div class="flex-col size2">
 						<span class="txt1 p-b-20">
-							Address
+							Energy Eigen
 						</span>
 
 						<span class="txt2">
-							Mada Center 8th floor, 379 Hudson St, New York, NY 10018 US
+							<div id="Enew"></div>
 						</span>
 					</div>
 				</div>
 
-				<div class="dis-flex size1 p-b-47">
+				<!-- <div class="dis-flex size1 p-b-47">
 					<div class="txt1 p-r-25">
 						<span class="lnr lnr-phone-handset"></span>
 					</div>
 
 					<div class="flex-col size2">
 						<span class="txt1 p-b-20">
-							Lets Talk
+							Ener
 						</span>
 
 						<span class="txt3">
 							+1 800 1236879
 						</span>
 					</div>
-				</div>
+				</div> -->
 
-				<div class="dis-flex size1 p-b-47">
+				<!-- <div class="dis-flex size1 p-b-47">
 					<div class="txt1 p-r-25">
 						<span class="lnr lnr-envelope"></span>
 					</div>
 
 					<div class="flex-col size2">
 						<span class="txt1 p-b-20">
-							General Support
+							<div id="Enew"></div>
 						</span>
 
 						<span class="txt3">
 							contact@example.com
 						</span>
 					</div>
-				</div>
+				</div> -->
+			
+			    <!-- <div class="flex-col size2" id = "Enew">
+
+				</div> -->
+				<br>
+				<div id="chartContainer1" style="height: 360px; width: 100%;"></div>
+				<br>
+    			<div id="chartContainer2" style="height: 360px; width: 100%;"></div>
+				<br>
+    			<div id="chartContainer3" style="height: 360px; width: 100%;"></div>
+				<br>
 			</div>
 		</div>
 	</div>
 
+<script src="filter/filter.js"></script>
+<script src="filter/singlePotential/harmonik.js"></script>
 
 
 	<div id="dropDownSelect1"></div>
