@@ -32,94 +32,97 @@
 
 
 	<div class="container-contact100">
-		<div class="wrap-contact100">
-			<div class="contact100-form validate-form">
-				<span class="contact100-form-title">
-					initial parameter
-				</span>
+		<div class="wrap-contact100" >
+			<!-- <div class="validate-form"> -->
+				<div class="contact100-form">
+					<span class="contact100-form-title">
+						initial parameter
+					</span>
 
-				<label class="label-input100" for="nloop">nloop</label>
-				<div class="wrap-input100 validate-input" data-validate="nloop must a positive integer number">
-					<input id="nloop" class="input100" type="text" name="nloop" placeholder="3" value="3">
-					<span class="focus-input100"></span>
+					<label class="label-input100" for="nloop">nloop</label>
+					<div class="wrap-input100 validate-input" data-validate="nloop must a positive integer number">
+						<input id="nloop" class="input100" type="text" name="nloop" placeholder="3" value="30">
+						<span class="focus-input100"></span>
+					</div>
+
+					<label class="label-input100" for="xmin">Potensial range</label>
+					<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="xmin must a number and below xmax">
+						<input id="xmin" class="input100" type="text" name="xmin" placeholder="xmin" value="-10">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="xmax must a number and above xmin">
+						<input id="xmax" class="input100" type="text" name="xmax" placeholder="xmax" value="10">
+						<span class="focus-input100"></span>
+					</div>
+
+					<label class="label-input100" for="dx">dx</label>
+					<div class="wrap-input100 validate-input" data-validate = "dx must a positive number and not a zero">
+						<input id="dx" class="input100" type="text" name="dx" placeholder="0.01" value="0.01">
+						<span class="focus-input100"></span>
+					</div>
+
+					<label class="label-input100" for="initE">searched energy</label>
+					<div class="wrap-input100 validate-input" data-validate="initial energy must a positive number">
+						<input id="initE" class="input100" type="text" name="initE" placeholder="0" value="5">
+						<span class="focus-input100"></span>
+					</div>
+
+					<label class="label-input100" for="initE">minimum energy</label>
+					<div class="wrap-input100 validate-input" data-validate="minimum energy must a positive number">
+						<input id="minE" class="input100" type="text" name="minE" placeholder="0" value="0">
+						<span class="focus-input100"></span>
+					</div>
+
+					<label class="label-input100" for="v0">minimum potential</label>
+					<div class="wrap-input100 validate-input" data-validate="minimum potential must a positive number">
+						<input id="v0" class="input100" type="text" name="v0" placeholder="0" value="0">
+						<span class="focus-input100"></span>
+					</div>
 				</div>
 
-				<label class="label-input100" for="xmin">Potensial range</label>
-				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="xmin must a number and below xmax">
-					<input id="xmin" class="input100" type="text" name="xmin" placeholder="xmin" value="-1">
-					<span class="focus-input100"></span>
+				<div  style="width: 13%; margin-right: 20px; padding-top: 56px;">
+					<span class="contact100-form-title" style="padding-bottom: 33px; width: 69px;">
+						potential parameter
+					</span>
+
+					<!-- <div class="menu">
+						<div id="item">Single Potential</div>
+						<div id="submenu">
+							<button href="filter/singlePotential/harmonik.js">harmonik</>
+							<a href="#">Link 2</a>
+							<a href="#">Link 3</a>
+						</div>
+					</div> -->
+
+					<label class="label-input100" for="omega">omega</label>
+					<div class="wrap-input100">
+						<input id="omega" class="input100" type="number" name="omega" placeholder="1" value="1">
+						<span class="focus-input100"></span>
+					</div>
+
+
+					<div class="container-contact100-form-btn">
+						<button type="submit" name="submit" id="submit" onclick= submit() class="contact100-form-btn">
+							Run Program
+						</button>
+					</div>
 				</div>
-				<div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="xmax must a number and above xmin">
-					<input id="xmax" class="input100" type="text" name="xmax" placeholder="xmax" value="1">
-					<span class="focus-input100"></span>
-				</div>
-
-				<label class="label-input100" for="dx">dx</label>
-				<div class="wrap-input100 validate-input" data-validate = "dx must a positive number and not a zero">
-					<input id="dx" class="input100" type="text" name="dx" placeholder="0.01" value="0.01">
-					<span class="focus-input100"></span>
-				</div>
-
-				<label class="label-input100" for="initE">initial energy</label>
-				<div class="wrap-input100 validate-input" data-validate="initial energy must a positive number">
-					<input id="initE" class="input100" type="text" name="initE" placeholder="0" value="1">
-					<span class="focus-input100"></span>
-				</div>
-
-				<label class="label-input100" for="initE">minimum energy</label>
-				<div class="wrap-input100 validate-input" data-validate="minimum energy must a positive number">
-					<input id="minE" class="input100" type="text" name="minE" placeholder="0" value="0">
-					<span class="focus-input100"></span>
-				</div>
-
-				<label class="label-input100" for="v0">minimum potential</label>
-				<div class="wrap-input100 validate-input" data-validate="minimum potential must a positive number">
-					<input id="v0" class="input100" type="text" name="v0" placeholder="0" value="0">
-					<span class="focus-input100"></span>
-				</div>
-			</div>
-
-			<div class="contact100-form validate-form">
-				<span class="contact100-form-title">
-					potential parameter
-				</span>
-
-				 <!-- <div class="menu">
-     				<div id="item">Single Potential</div>
-      				<div id="submenu">
-        				<button href="filter/singlePotential/harmonik.js">harmonik</>
-        				<a href="#">Link 2</a>
-        				<a href="#">Link 3</a>
-      				</div>
-    			</div> -->
-
-				<label class="label-input100" for="omega">omega</label>
-				<div class="wrap-input100">
-					<input id="omega" class="input100" type="number" name="omega" placeholder="1" value="1">
-					<span class="focus-input100"></span>
-				</div>
-
-
-				<div class="container-contact100-form-btn">
-					<button type="submit" name="submit" id="submit" onclick= submit() class="contact100-form-btn">
-						Run Program
-					</button>
-				</div>
-			</div>
+			<!-- </div> -->
 
 			<div class="contact100-more flex-col-c-m" style="background-image: url('images/bg-01.jpg');">
+				<h1 class="text-light">Eigrn energy: <br> <span id="Enew"></span> </h1>
 				<div class="flex-w size1 p-b-47">
 					<div class="txt1 p-r-25">
-						<span class="lnr lnr-map-marker"></span>
+						<!-- <span class="lnr lnr-map-marker"></span> -->
 					</div>
 
 					<div class="flex-col size2">
-						<span class="txt1 p-b-20">
+						<!-- <span class="txt1 p-b-20">
 							Energy Eigen
-						</span>
+						</span> -->
 
 						<span class="txt2">
-							<div id="Enew"></div>
+							<div></div>
 						</span>
 					</div>
 				</div>
@@ -170,12 +173,6 @@
 		</div>
 	</div>
 
-<script src="filter/filter.js"></script>
-<script src="filter/singlePotential/harmonik.js"></script>
-
-
-	<div id="dropDownSelect1"></div>
-
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -197,15 +194,9 @@
 <!--===============================================================================================-->
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-23581568-13');
-	</script>
+	<script src="filter/filter.js"></script>
+<script src="filter/singlePotential/harmonik.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

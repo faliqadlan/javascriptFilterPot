@@ -29,7 +29,7 @@ let
     leb     = xmax - xmin,
     ngrid   = leb/dx;
 
-    // console.log(initE)
+    //console.log(nloop)
     //initE1 = initE
     
     //console.log(initE + 1e-16)

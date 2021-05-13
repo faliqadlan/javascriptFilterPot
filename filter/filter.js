@@ -58,17 +58,25 @@ function eigenState(x,ngrid,efunction,vpot,initE,iter,nloop,dx,vtemp)
     // console.table(vharm)
     estart = initE;
     // console.table(estart)
-    eps = 1e-12;
-    if (estart > 0) eps = 1e-12;
-    if (vharm > 1) eps = 1e-12;
+    eps = 1e-8;
+    if (estart > 0) eps = 1e-8;
+    if (vharm > 1) eps = 1e-8;
     energy = initE;
     isig = 1;
     if (initE < 0) isig = -1;
-    //console.table(isig)
+    //console.table(nloop)
     do {
         //console.log(initE);
+
+        if (iter == 0) {
+            nloop = nloop
+        } else {
+            nloop = 1
+        }
+
         iter += iter;
-        // console.log(efunction)
+
+        //console.log(iter)
         invers(dx,vtemp,vpot,efunction,ngrid,nloop);
         //console.log(efunction[ngrid/2])
         //iter1 = 0
@@ -176,6 +184,12 @@ function eigenState(x,ngrid,efunction,vpot,initE,iter,nloop,dx,vtemp)
     //     document.getElementById("ef").appendChild(listItem);
     //  });
 }
+
+
+
+
+
+
 
 function hamilton(dx,vtemp,vpot,efunction,ngrid)
 {
