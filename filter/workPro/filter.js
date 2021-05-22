@@ -1,18 +1,20 @@
-var efunction   = [],
-    collectEf   = [],
-    spekE       = [],
-    vtemp       = [],
-    arr         = [],
-    deltaSpekE  = [],
-    bandLabel   = [],
-    deriEf      = [],
-    peakEf      = [],
-    ef_miniPeri = [],
-    siPot       = [],
-    bandMin     = [],
-    bandMax     = [],
-    iter        = 0,
-    eLevel      = 0;
+// var efunction   = [],
+//     collectEf   = [],
+//     // spekE       = [],
+//     vtemp       = [],
+//     arr         = [],
+//     deltaSpekE  = [],
+//     bandLabel   = [],
+//     // deriEf      = [],
+//     // peakEf      = [],
+//     // ef_miniPeri = [],
+//     // siPot       = [],
+//     // bandMin     = [],
+//     // bandMax     = [],
+//     // gapBand     = [],
+//     // energyBand  = [],
+//     iter        = 0;
+//     // eLevel      = 0;
 
 function makeArr(startValue, stopValue, step) {
         
@@ -117,6 +119,7 @@ let     xmin  = argPot[0],
         v0    = argPot[3],
         ngrid = argPot[4];
         
+    //console.log(peakCount)
     // iSpekE      = 0
     // while (iSpekE < 2) {
     //     iSpekE = iSpekE + 1
@@ -142,8 +145,8 @@ let     xmin  = argPot[0],
     // return spekE
 
     let bandCount = 0,
-        siCount   = 1,
-        peakCount = 0;
+        siCount   = 1
+        ;
     // if (deltaSpekE[1] <= 1) {
     //     if (deltaSpekE[1] <= 0.5) {
     //         sic = (deltaSpekE[1] - deltaSpekE[0])
@@ -213,17 +216,28 @@ let     xmin  = argPot[0],
     //     }
     // }
 
-    bandMin.push(sortSpek[0])
+    bandMin.push((sortSpek[0]).toFixed(8))
     for (let i = 0; i < sortSpek.length-2; i++) {
         if (sortSpek[i+1] - sortSpek[i] > sic) {
             
-            bandMax.push(sortSpek[i])
-            bandMin.push(sortSpek[i+1])
+            bandMax.push((sortSpek[i]).toFixed(8))
+            bandMin.push((sortSpek[i+1]).toFixed(8))
         }
     }
     bandMax.push('...')
-    console.log(bandMin,bandMax)
+    //console.log(bandMin,bandMax)
+    for (let i = 0; i < bandMin.length-1; i++) {
+        // console.log(bandMin[i+1]-bandMax[i])
+        gapBand.push((bandMin[i+1]-bandMax[i]).toFixed(8))
+        // if (i == bandMin.length) {
+        //     energyBand.push("...")
+        // } else {
+        energyBand.push((bandMax[i]-bandMin[i]).toFixed(8))
+    }
+    gapBand.push("...")
+    energyBand.push("...")
 
+    //console.log(peakCount)
     bandCount_1 = peakCount
 }
 

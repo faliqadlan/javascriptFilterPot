@@ -67,7 +67,7 @@ class Vpot2 {
         let lks = lpt/2
 
         for (let i = 0; i < ngrid; i++) { 
-          x[i] = xmin + ((i)  * dx);
+          x[i] = xmin+ ((i)  * dx);
           xp[i]   = x[i] - xmin,
           xp[i]   = xp[i] + lpt;
 

@@ -12,7 +12,7 @@ class Vpot {
         om    = argHar[0];
     
     for (let i = 0; i < ngrid; i++) { 
-      x[i] = xmin + ((i)  * dx);
+      x[i] = (-(xmax-xmin)/2) + ((i)  * dx);
         //console.log(x[i]);
 
       vpot[i] = (0.5 * om * x[i] * x[i]) + v0
@@ -33,7 +33,7 @@ class Vpot {
         var xkan = xmax - tt;
     
     for (let i = 0; i < ngrid; i++) { 
-      x[i] = xmin + ((i)  * dx);
+      x[i] = (xmax-(xmax-xmin)) + ((i)  * dx);
         //console.log(x[i]);
 
       if (x[i] < tt) {
@@ -62,7 +62,7 @@ class Vpot {
         tt    = argTri[1];
     
     for (let i = 0; i < ngrid; i++) { 
-      x[i] = xmin + ((i)  * dx);
+      x[i] = (xmax-(xmax-xmin)) + ((i)  * dx);
         //console.log(x[i]);
 
       if (x[i] < tt) {
@@ -91,7 +91,7 @@ class Vpot {
         om    = argHar[0];
     
     for (let i = 0; i < ngrid; i++) { 
-      x[i] = xmin + ((i)  * dx);
+      x[i] = (xmax-(xmax-xmin)) + ((i)  * dx);
         //console.log(x[i]);
       // if (x[i] == 0) {
       //     x[i] = 1e-2;

@@ -3,15 +3,25 @@
 
 function run() {
     let nloop   = parseFloat(document.getElementById('nloop').value),
-        xmin    = parseFloat(document.getElementById('xmin').value),
-        xmax    = parseFloat(document.getElementById('xmax').value),
+        leb      = parseFloat(document.getElementById('potRange').value)
         dx      = parseFloat(document.getElementById('dx').value),
         initE   = parseFloat(document.getElementById('initE').value),
         minE    = parseFloat(document.getElementById('minE').value),
         v0      = parseFloat(document.getElementById('v0').value);
 
-    leb     = xmax - xmin,
+    
     ngrid   = leb/dx;
+
+    xmin = -(leb/2)
+    xmax = (leb/2)
+
+    efunction   = []
+    collectEf   = []
+    vtemp       = []
+    arr         = []
+    deltaSpekE  = []
+    bandLabel   = []
+    iter        = 0
 
     argPot = [xmin,xmax,dx,v0,ngrid,nloop,leb]
 
@@ -31,7 +41,8 @@ function run() {
         //console.log(selectedValue, "nothing")
     } else if (selectedValue == "0") {
         om = parseFloat(document.getElementById('omega').value)
-        
+        spekE = []
+        eLevel      = 0
         argHar = [om]
 
         potHarm = new Vpot
@@ -50,7 +61,8 @@ function run() {
         // load("./potential/tringale.js")
         tgi     = parseFloat(document.getElementById('tinggi').value);
         tt     = parseFloat(document.getElementById('titik_tengah').value)
-
+        spekE = []
+        eLevel      = 0
         argTri = [tgi,tt]
 
         potTri = new Vpot
@@ -69,7 +81,8 @@ function run() {
         // load("./potential/tringale.js")
         tgi     = parseFloat(document.getElementById('tinggi').value);
         tt     = parseFloat(document.getElementById('titik_tengah').value)
-
+        spekE = []
+        eLevel      = 0
         argTri = [tgi,tt]
 
         potTri = new Vpot
@@ -86,7 +99,8 @@ function run() {
 
     } else if (selectedValue == "3") {
         om = parseFloat(document.getElementById('omega').value)
-        
+        spekE = []
+        eLevel      = 0
         argHar = [om]
 
         potHarm = new Vpot
@@ -111,13 +125,24 @@ function run() {
         lpt = parseFloat(document.getElementById('lpt').value)
         de  = parseFloat(document.getElementById('de').value)
         
+        spekE = []
+        peakCount = 0,
+        bandMin     = []
+        bandMax     = []
+        gapBand     = []
+        energyBand  = []
+        deriEf      = []
+        peakEf      = []
+        ef_miniPeri = []
+        siPot       = []
+
         argKro = [vmax,lks,lpt,de]
 
         potKro = new Vpot2
         potKro = potKro.kronigPenney(argKro,argPot)
-
-        indexMiniX_start = x.indexOf(-2*lpt)
-        indexMiniX_end = x.indexOf(2*lpt)
+        
+        indexMiniX_start = x.indexOf(2*((xmax-((xmax-xmin)/2))-lpt))
+        indexMiniX_end = x.indexOf(2*((xmax-((xmax-xmin)/2))+lpt))
 
         //getDeltaSpekE(minE,vpot,argPot)
         //getEnergy(initE,potKro,argPot);
@@ -138,13 +163,24 @@ function run() {
         lks = parseFloat(document.getElementById('lks').value)
         de  = parseFloat(document.getElementById('de').value)
         
+        spekE = []
+        peakCount = 0,
+        bandMin     = []
+        bandMax     = []
+        gapBand     = []
+        energyBand  = []
+        deriEf      = []
+        peakEf      = []
+        ef_miniPeri = []
+        siPot       = []
+
         argPeriPot = [vmax,lks,de]
 
         potPeri = new Vpot2
         potPeri = potPeri.harmonic(argPeriPot,argPot)
-
-        indexMiniX_start = x.indexOf(-2*lks)
-        indexMiniX_end = x.indexOf(2*lks)
+        
+        indexMiniX_start = x.indexOf(2*((xmax-((xmax-xmin)/2))-lks))
+        indexMiniX_end = x.indexOf(2*((xmax-((xmax-xmin)/2))+lks))
 
         //getDeltaSpekE(minE,vpot,argPot)
         //getEnergy(initE,potPeri,argPot);
@@ -158,20 +194,31 @@ function run() {
         elevPlaceholder.innerHTML = `
         <h1 class="text-light">Energy Band Count: <span id="Elev"></span> </h1>
         `
-        Elev.innerHTML = bandCount_1;
+        Elev.innerHTML = peakCount;
         
     } else if (selectedValue2 == "2") {
         vmax = parseFloat(document.getElementById('vmax').value)
         lpt = parseFloat(document.getElementById('lpt').value)
         de  = parseFloat(document.getElementById('de').value)
         
+        spekE = []
+        peakCount = 0,
+        bandMin     = []
+        bandMax     = []
+        gapBand     = []
+        energyBand  = []
+        deriEf      = []
+        peakEf      = []
+        ef_miniPeri = []
+        siPot       = []
+
         argPeriPot = [vmax,lpt,de]
 
         potPeri = new Vpot2
         potPeri = potPeri.triangular(argPeriPot,argPot)
 
-        indexMiniX_start = x.indexOf(-2*lpt)
-        indexMiniX_end = x.indexOf(2*lpt)
+        indexMiniX_start = x.indexOf(2*((xmax-((xmax-xmin)/2))-lpt))
+        indexMiniX_end = x.indexOf(2*((xmax-((xmax-xmin)/2))+lpt))
 
         //getDeltaSpekE(minE,vpot,argPot)
         //getEnergy(initE,potPeri,argPot);
@@ -191,13 +238,24 @@ function run() {
         lpt = parseFloat(document.getElementById('lpt').value)
         de  = parseFloat(document.getElementById('de').value)
         
+        spekE = []
+        peakCount = 0,
+        bandMin     = []
+        bandMax     = []
+        gapBand     = []
+        energyBand  = []
+        deriEf      = []
+        peakEf      = []
+        ef_miniPeri = []
+        siPot       = []
+
         argPeriPot = [vmax,lpt,de]
 
         potPeri = new Vpot2
         potPeri = potPeri.sinusoidal(argPeriPot,argPot)
 
-        indexMiniX_start = x.indexOf(-2*lpt)
-        indexMiniX_end = x.indexOf(2*lpt)
+        indexMiniX_start = x.indexOf(2*((xmax-((xmax-xmin)/2))-lpt))
+        indexMiniX_end = x.indexOf(2*((xmax-((xmax-xmin)/2))+lpt))
 
         //getDeltaSpekE(minE,vpot,argPot)
         //getEnergy(initE,potPeri,argPot);
@@ -237,6 +295,17 @@ function run() {
     chartPlaceholder3.innerHTML=`
     <br>
     <div id="chartContainer3" style="height: 1000px; width: 1250px;"></div>
+	<br>
+    `
+    probPlaceholder.innerHTML=`
+    <br>
+    <div id="probContainer" style="height: 1000px; width: 1250px;"></div>
+	<br>
+    `
+
+    tablePlaceholder.innerHTML=`
+    <br>
+    <div id="tableContainer" style="height: 1000px; width: 1250px;"></div>
 	<br>
     `
 
@@ -289,7 +358,7 @@ function run() {
             },
         annotations: [
         {
-            x: xmin,
+            x: -(xmax-xmin)/2,
             y: Math.min.apply(null, vpot),
             xref: 'x',
             yref: 'y',
@@ -303,7 +372,7 @@ function run() {
                 }
         },
         {
-            x: xmax,
+            x: (xmax-xmin)/2,
             y: Math.min.apply(null, vpot),
             xref: 'x',
             yref: 'y',
@@ -317,7 +386,7 @@ function run() {
                 }
         },
         {
-            x: xmin,
+            x: -(xmax-xmin)/2,
             y: Math.max.apply(null, vpot),
             xref: 'x',
             yref: 'y',
@@ -413,6 +482,51 @@ function run() {
         }
      }
 
+     var prob_layout = {
+        title:{ 
+            text:"probability",
+            font: {
+                family: 'Courier New, monospace',
+                size: 30
+                }
+            },
+        xaxis: {
+            title:{
+            text:"x",
+            font: {
+                family: 'Courier New, monospace',
+                size: 24
+            }},
+            autorange: true,
+            automargin: true,
+            autotick: true,
+            showticklabels: true,
+            showgrid: true,
+            showline: true,
+            ticklen: 4,
+            tickwidth:4,
+            ticks:'outside'
+        },
+        yaxis: {
+            title:{
+            text:"probability(x)",
+            font: {
+                family: 'Courier New, monospace',
+                size : 24
+            }},
+            autorange: true,
+            automargin: true,
+            autotick: true,
+            showticklabels: true,
+            showgrid: true,
+            tickfont: {
+                family:'Old Standard TT, serif',
+                size:14,
+                color:"black"
+            }
+        }
+     }
+
     var spekE_layout = {
         title:{ 
             text:"Spektrum Energy",
@@ -468,14 +582,67 @@ function run() {
     
 
     if (selectedValue2 == "") {
+        let probSi = [],
+            count = [];
+
+        for (let i = 0; i < efunction.length; i++) {
+            probSi.push(Math.pow(efunction[i],2))
+        }
+
+        var prob_plot = {
+            x: x,
+            y: probSi,
+            type: 'scatter',
+            name: 'probability'
+            };
+
+        for (let i = 1; i < spekE.length+1; i++) {
+            count.push(i)
+        }
+
+        var spek_values = [
+            count,spekE
+        ]
+
+        var spek_data = [{
+            type: 'table',
+            header: {
+                values: [["<b>No</b>"], ["<b>Spectrum Energy</b>"]],
+                align: "center",
+                height:30,
+                line: {color: 'black'},
+                fill: {color: "grey"},
+                font: {family: "Arial", size: 24, color: "white"}
+                },
+            cells: {
+                values: spek_values,
+                align: "center",
+                height:35,
+                line: {color: "black"},
+                font: {family: "Arial", size: 24, color: ["black"]}
+                }
+        }]
+        
+        var table_layout = {
+            title: {
+                text : "Spectrum Energy Table",
+                font: {family: "Arial", size: 24, color: ["black"]}
+            }
+        }
+
+
         Plotly.newPlot( 'chartContainer2', [efunction_plot],efunction_layout)
+        Plotly.newPlot( 'probContainer', [prob_plot],prob_layout)
         Plotly.newPlot( 'chartContainer3', [spekE_plot],spekE_layout)
+        Plotly.newPlot( 'tablePlaceholder', spek_data,table_layout)
     } else if(selectedValue == "") {
 
         let x_mini = [],
         ef_mini = [],
         vpot_mini = [],
         xBand = []
+        probPer = [],
+        count = [];
         ;
         //console.log(indexMiniX_start, indexMiniX_end)
         for (let i = indexMiniX_start; i < indexMiniX_end; i++) {
@@ -488,8 +655,12 @@ function run() {
             vpot_mini.push(vpot[i])
         }
 
-        for (let index = 0; index < bandLabel.length; index++) {
-            xBand.push(x[indexMiniX_end]/4)
+        // for (let index = 0; index < bandLabel.length; index++) {
+        //     xBand.push(x[indexMiniX_end]/4)
+        // }
+
+        for (let i = 0; i < ef_mini.length; i++) {
+            probPer.push(Math.pow(ef_mini[i],2))
         }
 
         var vpot_miniPlot = {
@@ -506,6 +677,13 @@ function run() {
             name: 'psi'
         };
 
+        var prob_miniplot = {
+            x: x_mini,
+            y: probPer,
+            type: 'scatter',
+            name: 'probability'
+            };
+
         // var bandLabel_plot = {
         //     x : xBand,
         //     y : bandLabel,
@@ -520,7 +698,46 @@ function run() {
         //     name : 'band border'
         // }
 
+        for (let i = 1; i < bandMin.length+1; i++) {
+            count.push(i)
+        }
+
+        var band_values = [
+            count,bandMin, bandMax, gapBand, energyBand
+        ]
+
+        var band_data = [{
+            type: 'table',
+            columnorder: [1,2,3,4,5],
+            columnwidth: [80,400,400,400,400],
+            header: {
+                values: [["<b>No</b>"], ["<b>Energy Minimum</b>"], ["<b>Energy Maximum</b>"],["<b>Band Gap</b>"], ["<b>Band Width</b>"]],
+                align: "center",
+                height:30,
+                line: {color: 'black'},
+                fill: {color: "grey"},
+                font: {family: "Arial", size: 24, color: "white"}
+                },
+            cells: {
+                values: band_values,
+                align: "center",
+                height:35,
+                width : 100,
+                line: {color: "black"},
+                font: {family: "Arial", size: 24, color: ["black"]}
+                }
+        }]
+
+        // var table_layout = {
+        //     title: {
+        //         text : "Spectrum Energy Table",
+        //         font: {family: "Arial", size: 24, color: ["black"]}
+        //     }
+        // }
+
         Plotly.newPlot( 'chartContainer2', [ef_miniPlot,vpot_miniPlot],efunction_layout)
         Plotly.newPlot( 'chartContainer3', [spekE_plot, vpot_miniPlot],spekE_layout)
+        Plotly.newPlot( 'probContainer', [prob_miniplot, vpot_miniPlot],prob_layout)
+        Plotly.newPlot( 'tablePlaceholder', band_data)
     }
 }
