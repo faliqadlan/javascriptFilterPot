@@ -132,6 +132,7 @@ let     xmin  = argPot[0],
     // }
 
     makeArr(minE, initE, de);
+    //console.log(arr)
     // console.log(arr[0])
     // e1 = singleEigen(argPot, vpot,iter,arr[0],vtemp)
     // console.log(e1)
@@ -258,30 +259,38 @@ function spekEnergy(minE,initE,vpot,argPot) {
     // }
 
     getEnergy(minE,vpot,argPot);
-    energy_new1 = energy_new;
+    // energy_new1 = energy_new;
     // collectEf.push(efunction)
     
-    while (energy_new1 < initE) {
+    while (energy_new < initE) {
         getEnergy(minE,vpot,argPot);
         eLevel = eLevel + 1;
-        energy_new1 = energy_new;
+        // energy_new1 = energy_new;
         spekE.push(energy_new);
         //collectEf.push(efunction)
         // console.log(collectEf)
         // console.log(efunction[1000])
-        if (energy_new <= 1 && energy_new >= 0) {
-            if (energy_new <= 0.5) {
-            sie = (energy_new - minE)*energy_new
-            } else if (energy_new > 0.5){
-            sie = (energy_new - minE)*minE
-            }
-        } else if (energy_new > 1) {
-            sie = (energy_new - minE)/energy_new
-        } else if (energy_new <= 0) {
-            sie = 0.1
-        }
+        // if (minE <= 0) {
+        //     sie = 0.1
+        // } else {
+        //     if (energy_new <= 1 && energy_new > 0) {
+        //         if (energy_new <= 0.5) {
+        //             sie = (energy_new - minE)*energy_new
+        //         } else if (energy_new > 0.5){
+        //             sie = (energy_new - minE)*minE
+        //         }
+        //     } else if (energy_new > 1) {
+        //             sie = (energy_new - minE)/energy_new
+        //     } 
+        // }
+        //else if (energy_new <= 0) {
+        //     sie = 0.1
+        // }
+        sie = 0.1
+        
 
-        minE = energy_new1 + sie;
+        minE = energy_new + sie;
+        //console.log(energy_new,minE,sie)
     }
     //console.log(eLevel)
 }
@@ -365,11 +374,11 @@ function getSum(total, num) {
 function eigenState(x,ngrid,efunction,vpot,initE,iter,nloop,dx,vtemp)
 {
     //initE = initE
-    // console.log(dx,ngrid,iter,nloop,initE)
+    //console.log(dx,ngrid,iter,nloop,initE)
     //console.log(vpot[0],vpot[ngrid-1])
     initE = initE + 1e-16;
     
-    // console.log(initE)
+    //console.log(initE)
     x_tart = x[0];
     x_end  = x[ngrid - 1];
     if (x_tart < 0) {

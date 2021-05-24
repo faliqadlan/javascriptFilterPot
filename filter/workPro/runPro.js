@@ -529,7 +529,7 @@ function run() {
 
     var spekE_layout = {
         title:{ 
-            text:"Spektrum Energy",
+            text:"Spectrum Energy",
             font: {
                 family: 'Courier New, monospace',
                 size: 30

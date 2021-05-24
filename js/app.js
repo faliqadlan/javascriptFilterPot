@@ -37,7 +37,7 @@ function start() {
                     <option value="0">Harmonic</option>
                     <option value="1">Triangle</option>
                     <option value="2">Heavy Side</option>
-                    <option value="3">Coulumb</option>
+                    
     </select>
 
     `
