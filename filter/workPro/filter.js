@@ -271,22 +271,23 @@ function spekEnergy(minE,initE,vpot,argPot) {
         // console.log(collectEf)
         // console.log(efunction[1000])
         // if (minE <= 0) {
-        //     sie = 0.1
+        //     sie = (energy_new - minE)
         // } else {
-        //     if (energy_new <= 1 && energy_new > 0) {
-        //         if (energy_new <= 0.5) {
-        //             sie = (energy_new - minE)*energy_new
-        //         } else if (energy_new > 0.5){
-        //             sie = (energy_new - minE)*minE
-        //         }
-        //     } else if (energy_new > 1) {
-        //             sie = (energy_new - minE)/energy_new
-        //     } 
-        // }
+            // if (energy_new <= 1 && energy_new > 0) {
+            //     if (energy_new <= 0.5) {
+            //         sie = (energy_new - minE)*energy_new
+            //     } else if (energy_new > 0.5){
+            //         sie = (energy_new - minE)*minE
+            //     }
+            // } else if (energy_new > 1) {
+            //         sie = (energy_new - minE)/energy_new
+            // } 
+        
         //else if (energy_new <= 0) {
         //     sie = 0.1
         // }
-        sie = 0.1
+        // sie = 0.1
+        sie = 0.001
         
 
         minE = energy_new + sie;

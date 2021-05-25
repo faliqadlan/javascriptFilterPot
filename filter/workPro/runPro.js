@@ -3,17 +3,19 @@
 
 function run() {
     let nloop   = parseFloat(document.getElementById('nloop').value),
-        leb      = parseFloat(document.getElementById('potRange').value)
+        xmin      = parseFloat(document.getElementById('xmin').value),
+        xmax      = parseFloat(document.getElementById('xmax').value),
+        // leb      = parseFloat(document.getElementById('potRange').value)
         dx      = parseFloat(document.getElementById('dx').value),
         initE   = parseFloat(document.getElementById('initE').value),
         minE    = parseFloat(document.getElementById('minE').value),
         v0      = parseFloat(document.getElementById('v0').value);
 
-    
+    leb = xmax - xmin;
     ngrid   = leb/dx;
 
-    xmin = -(leb/2)
-    xmax = (leb/2)
+    // xmin = -(leb/2)
+    // xmax = (leb/2)
 
     efunction   = []
     collectEf   = []
@@ -53,7 +55,7 @@ function run() {
         //Elevel(initE,potHarm,argPot)
 
         elevPlaceholder.innerHTML = `
-        <h1 class="text-light">Level energy: <span id="Elev"></span> </h1>
+        <h1 class="text-light">Energy Level Count: <span id="Elev"></span> </h1>
         `
         Elev.innerHTML = eLevel;
         
@@ -73,7 +75,7 @@ function run() {
         //Elevel(initE,potTri,argPot)
 
         elevPlaceholder.innerHTML = `
-        <h1 class="text-light">Level energy: <span id="Elev"></span> </h1>
+        <h1 class="text-light">Energy Level Count: <span id="Elev"></span> </h1>
         `
         Elev.innerHTML = eLevel;
 
@@ -93,7 +95,7 @@ function run() {
         //Elevel(initE,potTri,argPot)
 
         elevPlaceholder.innerHTML = `
-        <h1 class="text-light">Level energy: <span id="Elev"></span> </h1>
+        <h1 class="text-light">Energy Level Count: <span id="Elev"></span> </h1>
         `
         Elev.innerHTML = eLevel;
 
@@ -111,7 +113,7 @@ function run() {
         //Elevel(initE,potHarm,argPot)
 
         elevPlaceholder.innerHTML = `
-        <h1 class="text-light">Level energy: <span id="Elev"></span> </h1>
+        <h1 class="text-light">Energy Level Count: <span id="Elev"></span> </h1>
         `
         Elev.innerHTML = eLevel;
         
@@ -217,8 +219,8 @@ function run() {
         potPeri = new Vpot2
         potPeri = potPeri.triangular(argPeriPot,argPot)
 
-        indexMiniX_start = x.indexOf(2*((xmax-((xmax-xmin)/2))-lpt))
-        indexMiniX_end = x.indexOf(2*((xmax-((xmax-xmin)/2))+lpt))
+        indexMiniX_start = x.indexOf((xmax-(xmax-xmin)/2)-2*lpt)
+        indexMiniX_end = x.indexOf((xmax-(xmax-xmin)/2)+2*lpt)
 
         //getDeltaSpekE(minE,vpot,argPot)
         //getEnergy(initE,potPeri,argPot);
@@ -313,7 +315,7 @@ function run() {
         xt1 = [];
 
     for (let index = 0; index < spekE.length; index++) {
-        xt.push(0)
+        xt.push((xmax-(xmax-xmin)/2))
         xt1.push(100)
     }
     // console.log(xt,xt1)
@@ -358,7 +360,7 @@ function run() {
             },
         annotations: [
         {
-            x: -(xmax-xmin)/2,
+            x: xmin,
             y: Math.min.apply(null, vpot),
             xref: 'x',
             yref: 'y',
@@ -372,7 +374,7 @@ function run() {
                 }
         },
         {
-            x: (xmax-xmin)/2,
+            x: xmax,
             y: Math.min.apply(null, vpot),
             xref: 'x',
             yref: 'y',
@@ -386,7 +388,7 @@ function run() {
                 }
         },
         {
-            x: -(xmax-xmin)/2,
+            x: (xmax-xmin)/2,
             y: Math.max.apply(null, vpot),
             xref: 'x',
             yref: 'y',
